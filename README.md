@@ -8,7 +8,7 @@ Read a set of SVG icons and ouput a TTF/EOT/WOFF/WOFF2/SVG font, Generator of fo
 
 [Install](#install) · [Usage](#using-with-nodejs) · [Command](#using-with-command) · [Font Usage](#font-usage) · [API](#api) · [options](#options) · [npm](http://npm.im/svgtofont) · [License](#license)
 
-**Features:**  
+**Features:**
 
 - Supported font formats: `WOFF2`, `WOFF`, `EOT`, `TTF` and `SVG`.
 - Support SVG Symbol file.
@@ -60,13 +60,13 @@ graph LR;
 ## Install
 
 ```bash
-npm i svgtofont
+npm i @platon-net/svgtofont
 ```
 
-> [!NOTE]  
-> This package `v5+` is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c): Node 18+ is needed to use it and it must be `import` instead of `require`.  
+> [!NOTE]
+> This package `v5+` is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c): Node 18+ is needed to use it and it must be `import` instead of `require`.
 > ```js
-> import svgtofont from 'svgtofont';
+> import svgtofont from '@platon-net/svgtofont';
 > ```
 
 #### Using With Command
@@ -84,7 +84,7 @@ npm i svgtofont
 }
 ```
 
-You can add configuration to package.json. [#48](https://github.com/jaywcjlove/svgtofont/issues/48)
+You can add configuration to package.json. [#48](https://github.com/platon-net/svgtofont/issues/48)
 
 Support for `.svgtofontrc` and [more](https://github.com/jaywcjlove/auto-config-loader/blob/add7ae012f5c3903296fbf0ef06e3631e379c2cc/core/README.md?plain=1#L106-L135) configuration files.
 
@@ -106,13 +106,13 @@ export default {
 
 #### Using With Nodejs
 
-> [!NOTE]  
+> [!NOTE]
 > This package `v5+` is now pure ESM. Please [read this](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c).
 
 ```js
 import svgtofont from 'svgtofont';
 import path from 'node:path';
- 
+
 svgtofont({
   src: path.resolve(process.cwd(), 'icon'), // svg path, only searches one level, not recursive
   dist: path.resolve(process.cwd(), 'fonts'), // output path
@@ -154,7 +154,7 @@ svgtofont({
     // Add a Github corner to your website
     // Like: https://github.com/uiwjs/react-github-corners
     corners: {
-      url: 'https://github.com/jaywcjlove/svgtofont',
+      url: 'https://github.com/platon-net/svgtofont',
       width: 62, // default: 60
       height: 62, // default: 60
       bgColor: '#dc3545' // default: '#151513'
@@ -162,11 +162,11 @@ svgtofont({
     links: [
       {
         title: "GitHub",
-        url: "https://github.com/jaywcjlove/svgtofont"
+        url: "https://github.com/platon-net/svgtofont"
       },
       {
         title: "Feedback",
-        url: "https://github.com/jaywcjlove/svgtofont/issues"
+        url: "https://github.com/platon-net/svgtofont/issues"
       },
       {
         title: "Font Class",
@@ -177,7 +177,7 @@ svgtofont({
         url: "unicode.html"
       }
     ],
-    footerInfo: `Licensed under MIT. (Yes it's free and <a href="https://github.com/jaywcjlove/svgtofont">open-sourced</a>`
+    footerInfo: `Licensed under MIT. (Yes it's free and <a href="https://github.com/platon-net/svgtofont">open-sourced</a>`
   }
 }).then(() => {
   console.log('done!');
@@ -192,7 +192,7 @@ import { createSVG, createTTF, createEOT, createWOFF, createWOFF2, createSvgSymb
 const options = { ... };
 
 async function createFont() {
-  const unicodeObject = await createSVG(options); 
+  const unicodeObject = await createSVG(options);
   const ttf = await createTTF(options); // SVG Font => TTF
   await createEOT(options, ttf); // TTF => EOT
   await createWOFF(options, ttf); // TTF => WOFF
@@ -209,33 +209,33 @@ async function createFont() {
 
 > Type: `config?: AutoConfOption<SvgToFontOptions>`
 
-By default, settings are automatically loaded from `.svgtofontrc` and `package.json`. You can add configuration to `package.json`. [#48](https://github.com/jaywcjlove/svgtofont/issues/48)
+By default, settings are automatically loaded from `.svgtofontrc` and `package.json`. You can add configuration to `package.json`. [#48](https://github.com/platon-net/svgtofont/issues/48)
 
 Support for `.svgtofontrc` and [more](https://github.com/jaywcjlove/auto-config-loader/blob/add7ae012f5c3903296fbf0ef06e3631e379c2cc/core/README.md?plain=1#L106-L135) configuration files.
 
 ### log
 
-> Type: `Boolean`  
+> Type: `Boolean`
 
 A value of `false` disables logging
 
 ### logger
 
-> Type: `(msg) => void`  
+> Type: `(msg) => void`
 
 log callback function
 
 ### dist
 
-> Type: `String`  
-> Default value: ~~`dist`~~ => `fonts`  
+> Type: `String`
+> Default value: ~~`dist`~~ => `fonts`
 
 The output directory.
 
 ### outSVGReact
 
-> Type: `Boolean`  
-> Default value: `false`  
+> Type: `Boolean`
+> Default value: `false`
 
 Output `./dist/react/`, SVG generates `react` components.
 
@@ -252,7 +252,7 @@ export const Git = props => (
 
 ### outSVGReactNative
 
-> Type: `Boolean`  
+> Type: `Boolean`
 > Default value: `false`
 
 Output `./dist/reactNative/`, SVG generates `reactNative` components.
@@ -273,8 +273,8 @@ export const RangeIconFont = props => {
 
 ### outSVGPath
 
-> Type: `Boolean`  
-> Default value: `false`  
+> Type: `Boolean`
+> Default value: `false`
 
 Output `./dist/svgtofont.json`, The content is as follows:
 
@@ -286,27 +286,27 @@ Output `./dist/svgtofont.json`, The content is as follows:
 }
 ```
 
-Or you can generate the file separately: 
+Or you can generate the file separately:
 
 ```js
-const { generateIconsSource } = require('svgtofont/src/generate');	
-const path = require('path');	
+const { generateIconsSource } = require('svgtofont/src/generate');
+const path = require('path');
 
-async function generate () {	
-  const outPath = await generateIconsSource({	
-    src: path.resolve(process.cwd(), 'svg'),	
-    dist: path.resolve(process.cwd(), 'dist'),	
-    fontName: 'svgtofont',	
-  });	
-}	
+async function generate () {
+  const outPath = await generateIconsSource({
+    src: path.resolve(process.cwd(), 'svg'),
+    dist: path.resolve(process.cwd(), 'dist'),
+    fontName: 'svgtofont',
+  });
+}
 
 generate();
 ```
 
 ### generateInfoData
 
-> Type: `Boolean`  
-> Default value: `false`  
+> Type: `Boolean`
+> Default value: `false`
 
 Output `./dist/info.json`, The content is as follows:
 
@@ -324,21 +324,21 @@ Output `./dist/info.json`, The content is as follows:
 
 ### src
 
-> Type: `String`  
-> Default value: `svg`  
+> Type: `String`
+> Default value: `svg`
 
 output path
 
 ### emptyDist
 
-> Type: `String`  
-> Default value: `false`  
+> Type: `String`
+> Default value: `false`
 
 Clear output directory contents
 
 ### fontName
 
-> Type: `String`  
+> Type: `String`
 > Default value: `iconfont`
 
 The font family name you want.
@@ -348,13 +348,13 @@ The font family name you want.
 > Type: `String`
 > Default value: `undefined`
 
-The path of the templates, see `src/styles` or `test/templates/styles` to get reference about 
+The path of the templates, see `src/styles` or `test/templates/styles` to get reference about
   how to create a template, file names can have the extension .template, like a `filename.scss.template`
 
 ### startUnicode
 
-> Type: `Number`  
-> Default value: `0xea01`  
+> Type: `Number`
+> Default value: `0xea01`
 
 unicode start number
 
@@ -363,14 +363,14 @@ unicode start number
 Get Icon Unicode
 
 ```ts
-getIconUnicode?: (name: string, unicode: string, startUnicode: number) 
+getIconUnicode?: (name: string, unicode: string, startUnicode: number)
       => [string, number];
 ```
 
 ### useNameAsUnicode
 
-> Type: `Boolean`  
-> Default value: `false`  
+> Type: `Boolean`
+> Default value: `false`
 
 should the name(file name) be used as unicode? this switch allows for the support of ligatures.
 
@@ -403,8 +403,8 @@ as you add more svgs and process them into your font you would just use the same
 
 ### addLigatures
 
-> Type: `Boolean`  
-> Default value: `false`  
+> Type: `Boolean`
+> Default value: `false`
 
 adds possibility to use name (file name) in addition to codepoints. adds support of ligatures.
 
@@ -418,22 +418,22 @@ let's say you have some svgs and you want to use codepoints but for some of them
 
 ### useCSSVars
 
-> Type: `Boolean`  
-> Default value: `false`  
+> Type: `Boolean`
+> Default value: `false`
 
 consoles whenever {{ cssString }} template outputs unicode characters or css vars
 
 ### classNamePrefix
 
-> Type: `String`  
-> Default value: font name  
+> Type: `String`
+> Default value: font name
 
 Create font class name prefix, default value font name.
 
 ### css
 
-> Type: `Boolean|CSSOptions`  
-> Default value: `false`  
+> Type: `Boolean|CSSOptions`
+> Default value: `false`
 
 Create CSS/LESS files, default `true`.
 
@@ -453,12 +453,12 @@ type CSSOptions = {
   fontSize?: string | boolean;
   /**
    * Set the path in the css file
-   * https://github.com/jaywcjlove/svgtofont/issues/48#issuecomment-739547189
+   * https://github.com/platon-net/svgtofont/issues/48#issuecomment-739547189
    */
   cssPath?: string;
   /**
    * Set file name
-   * https://github.com/jaywcjlove/svgtofont/issues/48#issuecomment-739547189
+   * https://github.com/platon-net/svgtofont/issues/48#issuecomment-739547189
    */
   fileName?: string;
   /**
@@ -481,71 +481,71 @@ This is the setting for [svgicons2svgfont](https://github.com/nfroidure/svgicons
 
 #### svgicons2svgfont.fontName
 
-> Type: `String`  
-> Default value: `'iconfont'`  
+> Type: `String`
+> Default value: `'iconfont'`
 
 The font family name you want.
 
 #### svgicons2svgfont.fontId
 
-> Type: `String`  
-> Default value: the options.fontName value  
+> Type: `String`
+> Default value: the options.fontName value
 
 The font id you want.
 
 #### svgicons2svgfont.fontStyle
 
-> Type: `String`  
+> Type: `String`
 > Default value: `''`
 
 The font style you want.
 
 #### svgicons2svgfont.fontWeight
 
-> Type: `String`  
+> Type: `String`
 > Default value: `''`
 
 The font weight you want.
 
 #### svgicons2svgfont.fixedWidth
 
-> Type: `Boolean`  
-> Default value: `false`  
+> Type: `Boolean`
+> Default value: `false`
 
 Creates a monospace font of the width of the largest input icon.
 
 #### svgicons2svgfont.centerHorizontally
 
-> Type: `Boolean`  
-> Default value: `false`  
+> Type: `Boolean`
+> Default value: `false`
 
 Calculate the bounds of a glyph and center it horizontally.
 
 #### svgicons2svgfont.normalize
 
-> Type: `Boolean`  
-> Default value: `false`  
+> Type: `Boolean`
+> Default value: `false`
 
 Normalize icons by scaling them to the height of the highest icon.
 
 #### svgicons2svgfont.fontHeight
 
-> Type: `Number`  
-> Default value: `MAX(icons.height)`  
+> Type: `Number`
+> Default value: `MAX(icons.height)`
 
 The outputted font height  (defaults to the height of the highest input icon).
 
 #### svgicons2svgfont.round
 
-> Type: `Number`  
-> Default value: `10e12`  
+> Type: `Number`
+> Default value: `10e12`
 
 Setup SVG path rounding.
 
 #### svgicons2svgfont.descent
 
-> Type: `Number`  
-> Default value: `0`  
+> Type: `Number`
+> Default value: `0`
 
 The font descent. It is useful to fix the font baseline yourself.
 
@@ -553,24 +553,24 @@ The font descent. It is useful to fix the font baseline yourself.
 
 #### svgicons2svgfont.ascent
 
-> Type: `Number`  
-> Default value: `fontHeight - descent`  
+> Type: `Number`
+> Default value: `fontHeight - descent`
 
 The font ascent. Use this options only if you know what you're doing. A suitable
  value for this is computed for you.
 
 #### svgicons2svgfont.metadata
 
-> Type: `String`  
-> Default value: `undefined`  
+> Type: `String`
+> Default value: `undefined`
 
 The font [metadata](http://www.w3.org/TR/SVG/metadata.html). You can set any
  character data in but it is the be suited place for a copyright mention.
 
 #### svgicons2svgfont.log
 
-> Type: `Function`  
-> Default value: `console.log`  
+> Type: `Function`
+> Default value: `console.log`
 
 Allows you to provide your own logging function. Set to `function(){}` to
  disable logging.
@@ -578,7 +578,7 @@ Allows you to provide your own logging function. Set to `function(){}` to
 ### svgoOptions
 
 > Type: `OptimizeOptions`
-> Default value: `undefined` 
+> Default value: `undefined`
 
 Some options can be configured with `svgoOptions` though it. [svgo](https://github.com/svg/svgo#configuration)
 
@@ -596,7 +596,7 @@ copyright string
 
 > Type: `String`
 
-Unix timestamp (in seconds) to override creation time 
+Unix timestamp (in seconds) to override creation time
 
 #### svg2ttf.version
 
@@ -606,7 +606,7 @@ font version string, can be Version `x.y` or `x.y`.
 
 ### website
 
-Define preview web content. Example: 
+Define preview web content. Example:
 
 ```js
 {
@@ -624,7 +624,7 @@ Define preview web content. Example:
     // Add a Github corner to your website
     // Like: https://github.com/uiwjs/react-github-corners
     corners: {
-      url: 'https://github.com/jaywcjlove/svgtofont',
+      url: 'https://github.com/platon-net/svgtofont',
       width: 62, // default: 60
       height: 62, // default: 60
       bgColor: '#dc3545' // default: '#151513'
@@ -632,11 +632,11 @@ Define preview web content. Example:
     links: [
       {
         title: "GitHub",
-        url: "https://github.com/jaywcjlove/svgtofont"
+        url: "https://github.com/platon-net/svgtofont"
       },
       {
         title: "Feedback",
-        url: "https://github.com/jaywcjlove/svgtofont/issues"
+        url: "https://github.com/platon-net/svgtofont/issues"
       },
       {
         title: "Font Class",
@@ -653,8 +653,8 @@ Define preview web content. Example:
 
 #### website.template
 
-> Type: `String`  
-> Default value: [index.njk](src/website/index.njk)  
+> Type: `String`
+> Default value: [index.njk](src/website/index.njk)
 
 Custom template can customize parameters. You can define your own template based on the [default template](src/website/index.njk).
 
@@ -667,14 +667,14 @@ Custom template can customize parameters. You can define your own template based
 ```
 #### website.index
 
-> Type: `String`  
-> Default value: `font-class`, Enum{`font-class`, `unicode`, `symbol`}  
+> Type: `String`
+> Default value: `font-class`, Enum{`font-class`, `unicode`, `symbol`}
 
 Set default home page.
 
 ## Font Usage
 
-Suppose the font name is defined as `svgtofont`, The default home page is `unicode`, Will generate: 
+Suppose the font name is defined as `svgtofont`, The default home page is `unicode`, Will generate:
 
 ```bash
 font-class.html
@@ -816,7 +816,7 @@ export declare const SvgToFont: (props: SvgToFontProps) => JSX.Element;
 
 As always, thanks to our amazing contributors!
 
-<a href="https://github.com/jaywcjlove/svgtofont/graphs/contributors">
+<a href="https://github.com/platon-net/svgtofont/graphs/contributors">
   <img src="https://jaywcjlove.github.io/svgtofont/CONTRIBUTORS.svg" />
 </a>
 

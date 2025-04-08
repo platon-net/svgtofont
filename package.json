@@ -1,9 +1,12 @@
 {
-  "name": "svgtofont",
-  "version": "6.3.2",
+  "name": "@platon-net/svgtofont",
+  "version": "6.3.3",
   "description": "Converts SVG to TTF/EOT/WOFF/WOFF2/SVG format fonts.",
-  "homepage": "https://jaywcjlove.github.io/svgtofont/",
-  "funding": "https://jaywcjlove.github.io/#/sponsor",
+  "homepage": "https://github.com/platon-net/svgtofont",
+  "funding": "",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
   "exports": {
@@ -37,7 +40,7 @@
   "author": "Kenny <wowohoo@qq.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jaywcjlove/svgtofont.git"
+    "url": "https://github.com/platon-net/svgtofont"
   },
   "svgtofont": {
     "css": {

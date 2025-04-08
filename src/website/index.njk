@@ -14,61 +14,181 @@
     <link rel="stylesheet" href="{{ _link }}" />
   {% endif %}
   <style>
-    *{margin: 0;padding: 0;list-style: none;}
-    body { color: #696969; font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif; }
-    a { color: #333; text-decoration: underline; }
-    a:hover { color: rgb(9, 73, 209); }
-    .header { color: #333; text-align: center; padding: 80px 0 60px 0; min-height: 153px; font-size: 14px; }
-    .header .logo svg { height: 120px; width: 120px; }
-    .header h1 { font-size: 42px; padding: 26px 0 10px 0; }
-    .header sup {font-size: 14px; margin: 8px 0 0 8px; position: absolute; color: #7b7b7b; }
-    .info {
-      color: #999;
-      font-weight: normal;
-      max-width: 346px;
-      margin: 0 auto;
-      padding: 20px 0;
-      font-size: 14px;
-    }
+    :root {
+			--color-text: #696969;
+			--color-link: #333;
+			/* --color-active: rgb(9, 73, 209); */
+			--color-active: #3c75e4;
+		}
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
 
-    .icons { max-width: 1190px; margin: 0 auto; }
-    .icons ul { text-align: center; }
-    .icons ul li {
-      vertical-align: top;
-      width: 120px;
-      display: inline-block;
-      text-align: center;
-      background-color: rgba(0,0,0,.02);
-      border-radius: 3px;
-      padding: 29px 0 10px 0;
-      margin-right: 10px;
-      margin-top: 10px;
-      transition: all 0.6s ease;
-    }
-    .icons ul li:hover { background-color: rgba(0,0,0,.06); }
-    .icons ul li:hover span { color: #3c75e4; opacity: 1; }
-    .icons ul li .unicode { color: #8c8c8c; opacity: 0.3; }
-    .icons ul li h4 {
-      font-weight: normal;
-      padding: 10px 0 5px 0;
-      display: block;
-      color: #8c8c8c;
-      font-size: 14px;
-      line-height: 12px;
-      opacity: 0.8;
-    }
-    .icons ul li:hover h4 { opacity: 1; }
-    .icons ul li svg { width: 24px; height: 24px; }
-    .icons ul li:hover { color: #3c75e4; }
-    .footer { text-align: center; padding: 10px 0 90px 0; }
-    .footer a { text-align: center; padding: 10px 0 90px 0; color: #696969;}
-    .footer a:hover { color: #0949d1; }
-    .links { text-align: center; padding: 50px 0 0 0; font-size: 14px; }
+		body {
+			color: var(--color-text);
+			font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif;
+		}
+
+		a {
+			color: var(--color-link);
+			text-decoration: underline;
+		}
+
+		a:hover {
+			color: var(--color-active)
+		}
+
+		button {
+			background-color: #ccc;
+			color: #333;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 6px;
+			font-size: 16px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			border: 2px #ccc solid;
+		}
+
+		button:hover {
+			background-color: #bbb;
+			border: 2px var(--color-active) solid;
+			color: var(--color-active);
+		}
+
+		button:active {
+			background-color: #aaa;
+		}
+
+		.header {
+			color: var(--color-link);
+			text-align: center;
+			padding: 80px 0 60px 0;
+			min-height: 153px;
+			font-size: 14px;
+		}
+
+		.header .logo svg {
+			height: 120px;
+			width: 120px;
+		}
+
+		.header h1 {
+			font-size: 42px;
+			padding: 26px 0 10px 0;
+		}
+
+		.header sup {
+			font-size: 14px;
+			margin: 8px 0 0 8px;
+			position: absolute;
+			color: #7b7b7b;
+		}
+
+		.info {
+			color: #999;
+			font-weight: normal;
+			max-width: 346px;
+			margin: 0 auto;
+			padding: 20px 0;
+			font-size: 14px;
+		}
+
+		.code,
+		.icons {
+			max-width: 1190px;
+			margin: 0 auto;
+		}
+
+		.code {
+			text-align: center;
+		}
+		.code pre {
+			background-color: #ccc;
+			padding: 10px;
+			font-size: 20px;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			border-radius: 6px;
+		}
+
+		.icons ul {
+			text-align: center;
+		}
+
+		.icons ul li {
+			vertical-align: top;
+			width: 120px;
+			display: inline-block;
+			text-align: center;
+			background-color: rgba(0, 0, 0, .02);
+			border-radius: 3px;
+			padding: 29px 0 10px 0;
+			margin-right: 10px;
+			margin-top: 10px;
+			transition: all 0.6s ease;
+			border-radius: 6px;
+		}
+
+		.icons ul li:hover {
+			background-color: rgba(0, 0, 0, .06);
+		}
+
+		.icons ul li:hover span {
+			color: var(--color-active);
+			opacity: 1;
+		}
+
+		.icons ul li .unicode {
+			color: #8c8c8c;
+			opacity: 0.3;
+		}
+
+		.icons ul li h4 {
+			font-weight: normal;
+			padding: 10px 0 5px 0;
+			display: block;
+			color: #8c8c8c;
+			font-size: 14px;
+			line-height: 12px;
+			opacity: 0.8;
+		}
+
+		.icons ul li:hover h4 {
+			opacity: 1;
+		}
+
+		.icons ul li svg {
+			width: 24px;
+			height: 24px;
+		}
+
+		.icons ul li:hover {
+			color: var(--color-active);
+		}
+
+		.footer {
+			text-align: center;
+			padding: 10px 0 90px 0;
+		}
+
+		.footer a {
+			text-align: center;
+			padding: 10px 0 90px 0;
+		}
+		.links {
+			text-align: center;
+			padding: 50px 0 0 0;
+			font-size: 14px;
+		}
     {% if _type === 'font-class' %}
-    .icons ul li.class-icon { font-size: 21px; line-height: 21px; padding-bottom: 20px; }
+    .icons ul li.class-icon { font-size: 21px; line-height: 21px; padding-bottom: 20px; cursor: pointer; }
     .icons ul li.class-icon p{ font-size: 12px; }
     .icons ul li.class-icon [class^="{{ classNamePrefix }}-"]{ font-size: 26px; }
     {% elif _type === 'unicode' %}
+	.icons ul .unicode-icon { cursor: pointer; }
     .icons ul .unicode-icon span { display: block; }
     .icons ul .unicode-icon h4 { font-size: 12px; }
     @font-face {
@@ -94,7 +214,7 @@
       -moz-osx-font-smoothing: grayscale;
     }
     {% elif _type === 'symbol' %}
-    .icons ul li.symbol {padding: 28px 10px 16px 10px; width: 100px;}
+    .icons ul li.symbol {padding: 28px 10px 16px 10px; width: 100px; cursor: pointer; }
     .icons ul li.symbol svg {width: 34px; height: 34px;}
     .icons ul li.symbol h4 {font-size: 12px;}
     {% endif %}
@@ -111,6 +231,7 @@
       .github-corner .octo-arm { animation: octocat-wave 560ms ease-in-out; }
     }
     {% endif %}
+	.hide { display: none !important; }
   </style>
 </head>
 
@@ -140,6 +261,11 @@
       {% endfor %}
     </p>
   </div>
+	<div class="code">
+		<p>HTML code for use icon:</p>
+		<pre id="code-html">Click on icon</pre>
+		<button onclick="codeToClipboard();">Copy to clipboard</button>
+	</div>
   <div class="icons">
     <ul>
       {{ _IconHtml|safe }}
@@ -152,8 +278,50 @@
   </p>
   <div class="footer">
     {{ footerInfo|safe }}
-    <div><a target="_blank" href="https://github.com/jaywcjlove/svgtofont">Created By svgtofont</a></div>
+    <div>
+		<a target="_blank" href="https://platon.net">Created By Platon-NET</a>
+		as a fork of
+		<a target="_blank" href="https://github.com/jaywcjlove/svgtofont">svgtofont</a>
+	</div>
   </div>
+
+	<script>
+	var last_code = '';
+	document.addEventListener('DOMContentLoaded', function() {
+	  const icons = document.querySelectorAll('.class-icon, .unicode-icon, .symbol');
+	  icons.forEach(icon => {
+		icon.addEventListener('click', function() {
+			last_code = this.querySelector('.source').innerHTML.replace('&amp;', '&');
+			document.getElementById('code-html').innerText = last_code;
+		});
+	  });
+	});
+	function escapeHTML(html) {
+		return html
+			.replace(/&/g, '&amp;')
+			.replace(/</g, '&lt;')
+			.replace(/>/g, '&gt;')
+			.replace(/"/g, '&quot;')
+			.replace(/'/g, '&#39;');
+	}
+	function codeToClipboard() {
+		if (last_code.length <= 0) return true;
+		navigator.clipboard.writeText(last_code.trim())
+		.then(() => {
+			document.getElementById('code-html').innerHTML = 'The code has been copied to the clipboard!';
+			setTimeout(() => {
+				document.getElementById('code-html').innerText = last_code;
+			}, 2000);
+		})
+		.catch((err) => {
+			document.getElementById('code-html').innerHTML = 'Failed to copy the code: '+ err;
+			setTimeout(() => {
+				document.getElementById('code-html').innerText = last_code;
+			}, 2000);
+		});
+	}
+	</script>
+
 </body>
 
 </html>

@@ -306,13 +306,15 @@ export default async (options: SvgToFontOptions = {}) => {
       infoData[name].prefix = prefix;
       infoData[name].className = symbolName;
       infoData[name].unicode = `&#${encodedCodes};`;
-      cssIconHtml.push(`<li class="class-icon"><i class="${iconPart}</i><p class="name">${name}</p></li>`);
-      unicodeHtml.push(`<li class="unicode-icon"><span class="iconfont">${_code}</span><h4>${name}</h4><span class="unicode">&amp;#${encodedCodes};</span></li>`);
+      cssIconHtml.push(`<li class="class-icon"><div class="source"><i class="${iconPart}</i></div><p class="name">${name}</p></li>`);
+      unicodeHtml.push(`<li class="unicode-icon"><span class="iconfont">${_code}</span><h4 cass="name">${name}</h4><span class="unicode">&amp;#${encodedCodes};</span><span class="source hide">&amp;#${encodedCodes};</span></li>`);
       symbolHtml.push(`
         <li class="symbol">
-          <svg class="icon" aria-hidden="true">
+		  <p class="source">
+		  <svg class="icon" aria-hidden="true">
             <use xlink:href="${options.fontName}.symbol.svg#${symbolName}"></use>
           </svg>
+		  </p>
           <h4>${symbolName}</h4>
         </li>
       `);
